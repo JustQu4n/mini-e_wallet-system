@@ -1,0 +1,40 @@
+# Build results
+[Bb]in/
+[Oo]bj/
+
+# Visual Studio / VS Code
+.vs/
+.vscode/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Rider / JetBrains
+.idea/
+*.sln.iml
+
+# Test / coverage outputs
+TestResults/
+coverage/
+coverage.*
+*.coverage
+*.coveragexml
+
+# Logs
+logs/
+*.log
+
+# ASP.NET / .NET artifacts
+appsettings.*.json
+*.nupkg
+packages/
+
+# EF Core
+Migrations/*Snapshot.cs
+
+# OS files
+.DS_Store
+Thumbs.db
+
+

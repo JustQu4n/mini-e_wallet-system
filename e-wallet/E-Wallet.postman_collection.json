@@ -1,0 +1,193 @@
+{
+  "info": {
+    "name": "E-Wallet API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Authentication",
+      "item": [
+        {
+          "name": "Register",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"email\": \"test@example.com\", \"password\": \"TestPass123\", \"confirmPassword\": \"TestPass123\"}"
+            },
+            "url": {
+              "raw": "https://localhost:7001/api/auth/register",
+              "protocol": "https",
+              "host": ["localhost"],
+              "port": "7001",
+              "path": ["api", "auth", "register"]
+            }
+          }
+        },
+        {
+          "name": "Login",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"email\": \"test@example.com\", \"password\": \"TestPass123\"}"
+            },
+            "url": {
+              "raw": "https://localhost:7001/api/auth/login",
+              "protocol": "https",
+              "host": ["localhost"],
+              "port": "7001",
+              "path": ["api", "auth", "login"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Wallet",
+      "item": [
+        {
+          "name": "Get Balance",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer YOUR_TOKEN_HERE"
+              }
+            ],
+            "url": {
+              "raw": "https://localhost:7001/api/wallet/balance",
+              "protocol": "https",
+              "host": ["localhost"],
+              "port": "7001",
+              "path": ["api", "wallet", "balance"]
+            }
+          }
+        },
+        {
+          "name": "Deposit",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer YOUR_TOKEN_HERE"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"amount\": 1000, \"description\": \"Initial deposit\", \"idempotencyKey\": \"deposit-001\"}"
+            },
+            "url": {
+              "raw": "https://localhost:7001/api/wallet/deposit",
+              "protocol": "https",
+              "host": ["localhost"],
+              "port": "7001",
+              "path": ["api", "wallet", "deposit"]
+            }
+          }
+        },
+        {
+          "name": "Withdraw",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer YOUR_TOKEN_HERE"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"amount\": 100, \"description\": \"Withdrawal\", \"idempotencyKey\": \"withdraw-001\"}"
+            },
+            "url": {
+              "raw": "https://localhost:7001/api/wallet/withdraw",
+              "protocol": "https",
+              "host": ["localhost"],
+              "port": "7001",
+              "path": ["api", "wallet", "withdraw"]
+            }
+          }
+        },
+        {
+          "name": "Transfer",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer YOUR_TOKEN_HERE"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"toUserId\": \"RECIPIENT_USER_ID\", \"amount\": 250, \"description\": \"Payment\", \"idempotencyKey\": \"transfer-001\"}"
+            },
+            "url": {
+              "raw": "https://localhost:7001/api/wallet/transfer",
+              "protocol": "https",
+              "host": ["localhost"],
+              "port": "7001",
+              "path": ["api", "wallet", "transfer"]
+            }
+          }
+        },
+        {
+          "name": "Get Transactions",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer YOUR_TOKEN_HERE"
+              }
+            ],
+            "url": {
+              "raw": "https://localhost:7001/api/wallet/transactions?page=1&pageSize=50",
+              "protocol": "https",
+              "host": ["localhost"],
+              "port": "7001",
+              "path": ["api", "wallet", "transactions"],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "pageSize",
+                  "value": "50"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
